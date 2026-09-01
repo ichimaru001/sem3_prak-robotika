@@ -25,6 +25,7 @@ services:
       - ws_install:/ws/install
     stdin_open: true
     tty: true
+    command: bash -c "ros2 run demo_nodes_cpp talker & ros2 run demo_nodes_py listener & wait"
 volumes:
   ws_build:
   ws_install:
