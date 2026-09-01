@@ -1,0 +1,30 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        UID: "${UID:-1000}"
+        GID: "${GID:-1000}"
+    image: robotics-lab:dev
+    container_name: robotics_dev
+    network_mode: host
+    ipc: host
+    environment:
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-31}
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - ../src:/ws/src
+      - ../config:/ws/config
+      - ../launch:/ws/launch
+      - ../data:/ws/data
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ws_build:/ws/build
+      - ws_install:/ws/install
+    stdin_open: true
+    tty: true
+volumes:
+  ws_build:
+  ws_install:
