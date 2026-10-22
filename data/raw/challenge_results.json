@@ -1,0 +1,12 @@
+{
+  "with_slew_limiter": {
+    "e_p": 0.0299,
+    "e_theta_deg": 0.92,
+    "status": "FINISHED: e_p=0.0299 m (<= 0.05: True), e_theta=0.92 deg (<= 5.0: True)"
+  },
+  "without_slew_limiter": {
+    "e_p": 0.022,
+    "e_theta_deg": 3.78,
+    "status": "FINISHED: e_p=0.0220 m (<= 0.05: True), e_theta=3.78 deg (<= 5.0: True)"
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "k_rho": 0.3,
+    "k_alpha": 1.0,
+    "trials": [
+      {
+        "settling_time": 14.9,
+        "overshoot": 0.0,
+        "e_p": 0.0303
+      },
+      {
+        "settling_time": 15.0,
+        "overshoot": 0.0,
+        "e_p": 0.0301
+      },
+      {
+        "settling_time": 14.65,
+        "overshoot": 0.0,
+        "e_p": 0.0302
+      },
+      {
+        "settling_time": 14.7,
+        "overshoot": 0.0,
+        "e_p": 0.0293
+      },
+      {
+        "settling_time": 14.95,
+        "overshoot": 0.0,
+        "e_p": 0.0297
+      }
+    ],
+    "settling_time_summary": "14.840 +/- 0.156",
+    "overshoot_summary": "0.000 +/- 0.000",
+    "e_p_summary": "0.030 +/- 0.000",
+    "perilaku": "Respons lambat konvergen, sangat halus, tanpa osilasi atau overshoot"
+  },
+  {
+    "k_rho": 0.6,
+    "k_alpha": 1.5,
+    "trials": [
+      {
+        "settling_time": 11.3,
+        "overshoot": 0.0,
+        "e_p": 0.0297
+      },
+      {
+        "settling_time": 11.1,
+        "overshoot": 0.0,
+        "e_p": 0.0296
+      },
+      {
+        "settling_time": 11.05,
+        "overshoot": 0.0,
+        "e_p": 0.0294
+      },
+      {
+        "settling_time": 11.3,
+        "overshoot": 0.0,
+        "e_p": 0.0298
+      },
+      {
+        "settling_time": 11.1,
+        "overshoot": 0.0,
+        "e_p": 0.0299
+      }
+    ],
+    "settling_time_summary": "11.170 +/- 0.120",
+    "overshoot_summary": "0.000 +/- 0.000",
+    "e_p_summary": "0.030 +/- 0.000",
+    "perilaku": "Kinerja nominal seimbang, settling time cepat, stabil presisi"
+  },
+  {
+    "k_rho": 1.2,
+    "k_alpha": 3.0,
+    "trials": [
+      {
+        "settling_time": 10.05,
+        "overshoot": 0.0,
+        "e_p": 0.0288
+      },
+      {
+        "settling_time": 10.05,
+        "overshoot": 0.0,
+        "e_p": 0.029
+      },
+      {
+        "settling_time": 10.0,
+        "overshoot": 0.0,
+        "e_p": 0.0299
+      },
+      {
+        "settling_time": 10.15,
+        "overshoot": 0.0,
+        "e_p": 0.0292
+      },
+      {
+        "settling_time": 9.95,
+        "overshoot": 0.0,
+        "e_p": 0.0295
+      }
+    ],
+    "settling_time_summary": "10.040 +/- 0.074",
+    "overshoot_summary": "0.000 +/- 0.000",
+    "e_p_summary": "0.029 +/- 0.000",
+    "perilaku": "Agresif berakselerasi, sedikit osilasi heading pada transisi, sedikit overshoot"
+  }
+]

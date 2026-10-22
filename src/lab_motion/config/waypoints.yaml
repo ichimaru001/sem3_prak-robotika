@@ -1,0 +1,23 @@
+# Engineering Challenge Waypoints (Modul 6, Section 6.9)
+# Trajectory: Start -> 1 m forward -> 90 deg left -> 1 m forward -> Stop ("FINISHED")
+challenge_waypoints:
+  tolerance_pos: 0.03          # 3 cm (< 5 cm required)
+  tolerance_heading_deg: 4.0    # 4 degrees (< 5 deg required)
+  v_max: 0.15                  # m/s (safe lab limit)
+  w_max: 1.0                   # rad/s
+  k_rho: 0.6
+  k_alpha: 1.5
+  use_slew_rate: true          # Bonus: Slew-rate acceleration limiter
+  max_accel_lin: 0.20          # m/s^2 max linear acceleration
+  max_accel_ang: 1.0           # rad/s^2 max angular acceleration
+  segments:
+    - type: "waypoint"
+      x: 1.0
+      y: 0.0
+    - type: "heading"
+      yaw_deg: 90.0
+    - type: "waypoint"
+      x: 1.0
+      y: 1.0
+    - type: "heading"
+      yaw_deg: 90.0

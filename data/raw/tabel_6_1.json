@@ -1,0 +1,42 @@
+[
+  {
+    "uji": 1,
+    "v": 0.1,
+    "w": 0.0,
+    "w_R_teori": 3.0303,
+    "w_R_terukur": 3.0308,
+    "w_L_teori": 3.0303,
+    "w_L_terukur": 3.0302,
+    "error_pct": 0.0105
+  },
+  {
+    "uji": 2,
+    "v": 0.15,
+    "w": 0.5,
+    "w_R_teori": 5.7576,
+    "w_R_terukur": 5.7582,
+    "w_L_teori": 3.3333,
+    "w_L_terukur": 3.3349,
+    "error_pct": 0.0239
+  },
+  {
+    "uji": 3,
+    "v": 0.05,
+    "w": 1.0,
+    "w_R_teori": 3.9394,
+    "w_R_terukur": 3.9392,
+    "w_L_teori": -0.9091,
+    "w_L_terukur": -0.9093,
+    "error_pct": 0.0097
+  },
+  {
+    "uji": 4,
+    "v": 0.0,
+    "w": 1.0,
+    "w_R_teori": 2.4242,
+    "w_R_terukur": 2.4258,
+    "w_L_teori": -2.4242,
+    "w_L_terukur": -2.4235,
+    "error_pct": 0.0484
+  }
+]
