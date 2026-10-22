@@ -5,13 +5,10 @@ from rclpy.signals import SignalHandlerOptions
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
-
 def wrap(a):
     return math.atan2(math.sin(a), math.cos(a))
-
 def yaw_from_quat(q):
     return math.atan2(2.0 * (q.w * q.z + q.x * q.y), 1.0 - 2.0 * (q.y * q.y + q.z * q.z))
-
 class ClosedLoop(Node):
     def __init__(self):
         super().__init__('closed_loop')
@@ -31,7 +28,6 @@ class ClosedLoop(Node):
         self.pub = self.create_publisher(Twist, '/cmd_vel', 10)
         self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
         self.create_timer(0.05, self.control)
-
     def odom_callback(self, msg):
         p = msg.pose.pose
         self.pose = (p.position.x, p.position.y, yaw_from_quat(p.orientation))
@@ -40,13 +36,11 @@ class ClosedLoop(Node):
             self.start_pose = self.pose
             self.generate_waypoints()
             self.get_logger().info(f'Start pose = {self.start_pose}')
-
     def local_to_world(self, lx, ly):
         x0, y0, th0 = self.start_pose
         wx = x0 + math.cos(th0) * lx - math.sin(th0) * ly
         wy = y0 + math.sin(th0) * lx + math.cos(th0) * ly
         return (wx, wy)
-
     def generate_waypoints(self):
         trajectory = self.get_parameter('trajectory').get_parameter_value().string_value
         if trajectory == 'line':
@@ -73,16 +67,13 @@ class ClosedLoop(Node):
             self.waypoints = []
         else:
             self.get_logger().error('Unknown trajectory')
-
     def stop(self):
         self.pub.publish(Twist())
-
     def finish(self):
         if not self.finished:
             self.finished = True
             self.stop()
             self.get_logger().info('FINISHED')
-
     def control(self):
         if self.finished:
             self.stop()
@@ -105,7 +96,6 @@ class ClosedLoop(Node):
         w_max = float(self.get_parameter('w_max').value)
         tol_pos = float(self.get_parameter('tol_pos').value)
         tol_heading = float(self.get_parameter('tol_heading').value)
-
         cmd = Twist()
         if trajectory == 'rotate':
             target_heading = wrap(start_th + math.pi)
@@ -118,7 +108,6 @@ class ClosedLoop(Node):
             cmd.angular.z = w
             self.pub.publish(cmd)
             return
-
         if self.goal_index < len(self.waypoints):
             gx, gy = self.waypoints[self.goal_index]
             rho = math.hypot(gx - x, gy - y)
@@ -137,7 +126,6 @@ class ClosedLoop(Node):
             cmd.angular.z = w
             self.pub.publish(cmd)
             return
-
         heading_error = wrap(start_th - th)
         if abs(heading_error) < tol_heading:
             self.finish()
@@ -146,7 +134,6 @@ class ClosedLoop(Node):
         w = max(-w_max, min(w_max, w))
         cmd.angular.z = w
         self.pub.publish(cmd)
-
 def main(args=None):
     rclpy.init(args=args, signal_handler_options=SignalHandlerOptions.NO)
     node = ClosedLoop()
@@ -161,6 +148,5 @@ def main(args=None):
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()
-
 if __name__ == '__main__':
     main()
